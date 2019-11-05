@@ -2,11 +2,10 @@ package com.example.demo.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
-@Entity(name="USERS")
+@Entity(name="Users")
 @Data
 public class User {
     @Id
@@ -14,4 +13,10 @@ public class User {
 
     @Column(name="Login")
     String Login;
+
+    @Column(name="Name")
+    String Name;
+
+    @ManyToMany(mappedBy = "users")
+    private Collection<Book> books;
 }
