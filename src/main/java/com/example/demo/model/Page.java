@@ -5,9 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.sql.rowset.serial.SerialBlob;
 
-@Entity(name="Inner")
+@Entity(name="Pages")
 @Data
-public class Page {
+class Page {
     @Column(name="Text")
     String text;
 

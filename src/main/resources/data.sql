@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS Library (
     Bookmark    int     not null    DEFAULT 0
 );
 
-CREATE TABLE IF NOT EXISTS Inner (
+CREATE TABLE IF NOT EXISTS Pages (
     Id          int     not null    primary key auto_increment,
     Book_id     int     not null    references Books(Book_id),
     Page        int     not null,
