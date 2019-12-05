@@ -17,6 +17,6 @@ public class User {
     @Column(name="Name")
     String Name;
 
-//    @ManyToMany(mappedBy = "Users")
-//    private Collection<Book> books;
+    @ManyToMany(mappedBy = "users")
+    private Collection<Book> books;
 }
