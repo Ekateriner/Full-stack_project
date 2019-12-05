@@ -8,6 +8,13 @@ import javax.sql.rowset.serial.SerialBlob;
 @Entity(name="Pages")
 @Data
 class Page {
+    @Id
+    long author_id;
+
+    @ManyToOne()
+    @JoinColumn(name="Book_id")
+    private Book primaryBook;
+
     @Column(name="Text")
     String text;
 
@@ -19,8 +26,4 @@ class Page {
 
     @Column(name="Atmosphere")
     SerialBlob sound;
-
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name="Book_id")
-    private Book primaryBook;
 }

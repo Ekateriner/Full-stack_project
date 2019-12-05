@@ -17,6 +17,6 @@ public class Author {
     @Column(name="Biography")
     String biography;
 
-    @OneToMany(mappedBy = "primaryAuthor", fetch = FetchType.EAGER)
-    private Collection<Book> author_books;
+//    @OneToMany(mappedBy = "primaryAuthor", fetch = FetchType.EAGER)
+//    private Collection<Book> author_books;
 }
