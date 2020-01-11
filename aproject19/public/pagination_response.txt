@@ -1,0 +1,35 @@
+{
+    "error": false,
+    "reason": "",
+    "page_id": 2,
+    "books": [
+        {
+            "author": "Айгуль не знает",
+            "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRNk33SLPrZ7wHpymZOVlPqnvGHda_H_By_lcEfIggTSqOVSmtU_sN27UaJ1zc6fK6rlwBDsCGl6ZYw0N-rpRpxQnEkTLwuvL-SuA8diwjpYP32cjibP9T4fQ&usqp=CAc",
+            "title": "Статистика и котики",
+            "read": false,
+            "id": 1
+        },
+        {
+            "author": "Айгуль знает",
+            "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRNk33SLPrZ7wHpymZOVlPqnvGHda_H_By_lcEfIggTSqOVSmtU_sN27UaJ1zc6fK6rlwBDsCGl6ZYw0N-rpRpxQnEkTLwuvL-SuA8diwjpYP32cjibP9T4fQ&usqp=CAc",
+            "title": "Статистика и песики",
+            "read": true,
+            "id": 2
+        },
+        {
+            "author": "Сама Айгуль",
+            "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRNk33SLPrZ7wHpymZOVlPqnvGHda_H_By_lcEfIggTSqOVSmtU_sN27UaJ1zc6fK6rlwBDsCGl6ZYw0N-rpRpxQnEkTLwuvL-SuA8diwjpYP32cjibP9T4fQ&usqp=CAc",
+            "title": "Котики без статистики",
+            "read": false,
+            "id": 3
+        },
+        {
+            "author": "Точно не Айгуль",
+            "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRNk33SLPrZ7wHpymZOVlPqnvGHda_H_By_lcEfIggTSqOVSmtU_sN27UaJ1zc6fK6rlwBDsCGl6ZYw0N-rpRpxQnEkTLwuvL-SuA8diwjpYP32cjibP9T4fQ&usqp=CAc",
+            "title": "Песики без статистики",
+            "read": true,
+            "id": 4
+        }
+    ]
+}
