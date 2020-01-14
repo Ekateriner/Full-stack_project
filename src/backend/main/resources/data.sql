@@ -40,4 +40,3 @@ CREATE TABLE IF NOT EXISTS Pages (
     Picture     blob        null,
     Atmosphere  blob        null
 );
-
