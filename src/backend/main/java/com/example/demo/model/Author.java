@@ -19,8 +19,8 @@ public class Author {
     @Column(name="Biography")
     String biography;
 
-    @OneToMany(mappedBy = "primaryAuthor", fetch = FetchType.EAGER)
-    private Collection<Book> Books;
+    /*@OneToMany(mappedBy = "primaryAuthor", fetch = FetchType.EAGER)
+    private Collection<Book> Books;*/
 
     public Author() {}
 
@@ -42,9 +42,9 @@ public class Author {
         return biography;
     }
 
-    public Collection<Book> getBooks() {
+    /*public Collection<Book> getBooks() {
         return Books;
-    }
+    }*/
 
     // SET
 

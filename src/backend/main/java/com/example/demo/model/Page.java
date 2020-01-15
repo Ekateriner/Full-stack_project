@@ -10,12 +10,12 @@ import javax.sql.rowset.serial.SerialBlob;
 public class Page {
     @Id
     @GeneratedValue
-    @Column(name = "Id", updatable = false, nullable = false)
+    @Column(name = "page_id", updatable = false, nullable = false)
     long page_id;
 
-    @ManyToOne()
+    /*@ManyToOne()
     @JoinColumn(name="Book_id")
-    private Book primaryBook;
+    private Book primaryBook;*/
 
     @Column(name="Text")
     String text;
@@ -35,9 +35,9 @@ public class Page {
         return page_id;
     }
 
-    public Book getPrimaryBook() {
+    /*public Book getPrimaryBook() {
         return primaryBook;
-    }
+    }*/
 
     public String getText() {
         return text;

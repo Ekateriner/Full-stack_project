@@ -23,15 +23,15 @@ public class Book {
     @JoinColumn(name="Author_id")
     private Author primaryAuthor;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name="Library",
                joinColumns = @JoinColumn(name="Book_id"),
                inverseJoinColumns = @JoinColumn(name="User_id")
     )
-    private Collection<User> users;
+    private Collection<User> users;*/
 
-    @OneToMany(mappedBy = "primaryBook", fetch = FetchType.EAGER)
-    private Collection<Page> pages;
+    /*@OneToMany(mappedBy = "primaryBook", fetch = FetchType.EAGER)
+    private Collection<Page> pages;*/
 
     public Book() {};
 
@@ -58,9 +58,9 @@ public class Book {
         return primaryAuthor;
     }
 
-    public Collection<Page> getPages() {
+    /*public Collection<Page> getPages() {
         return pages;
-    }
+    }*/
 
     // SET
 

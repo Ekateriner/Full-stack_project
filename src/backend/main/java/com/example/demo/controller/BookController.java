@@ -18,11 +18,16 @@ public class BookController {
 
     @GetMapping(value = "/book")
     public Collection<Page> Get(@RequestParam(name = "id")long id){
-        Book book = service.get(id);
-        return book.getPages();
+        return service.get(id);
     }
+
     @GetMapping(value = "/all_books")
     public List<Book> Get(){
         return service.AllBooks();
+    }
+
+    @GetMapping(value = "/books")
+    public List<Book> User_books(@RequestParam(name = "id")long id){
+        return service.UserBooks(id);
     }
 }
