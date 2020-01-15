@@ -6,10 +6,11 @@ DROP TABLE IF EXISTS  Library;
 CREATE TABLE IF NOT EXISTS Users (
     User_id     int     not null    primary key auto_increment,
     Login       text    not null,
-    User_name   text,
-    Hash_pass   int     not null,
+    Name        text,
+    Surname     text,
+    Email       varchar(16)  not null    unique,
 
-    Salt        varchar(16)     not null
+    Hash_pass   varchar(60)  not null,
 );
 
 CREATE TABLE IF NOT EXISTS Authors (

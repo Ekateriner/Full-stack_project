@@ -7,9 +7,11 @@ import javax.sql.rowset.serial.SerialBlob;
 
 @Entity(name="Pages")
 @Data
-class Page {
+public class Page {
     @Id
-    long author_id;
+    @GeneratedValue
+    @Column(name = "Id", updatable = false, nullable = false)
+    long page_id;
 
     @ManyToOne()
     @JoinColumn(name="Book_id")
@@ -26,4 +28,44 @@ class Page {
 
     @Column(name="Atmosphere")
     SerialBlob sound;
+
+    // GET
+
+    public long getPage_id() {
+        return page_id;
+    }
+
+    public Book getPrimaryBook() {
+        return primaryBook;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public int getPage_num() {
+        return page_num;
+    }
+
+    public SerialBlob getImage() {
+        return image;
+    }
+
+    public SerialBlob getSound() {
+        return sound;
+    }
+
+    // SET
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setImage(SerialBlob image) {
+        this.image = image;
+    }
+
+    public void setSound(SerialBlob sound) {
+        this.sound = sound;
+    }
 }
