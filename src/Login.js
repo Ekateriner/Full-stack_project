@@ -7,40 +7,47 @@ import BookList from "./BookList";
 import "./templates.css"
 
 class Login extends  React.Component {
-    PersonPage() {
-        /*cookie.set('token', token);
-        dispatch(setToken(token));
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;*/
-
+    SaveSession() {
         const queryString = window.location.search;
-        console.log(queryString);
 
         const urlParams = new URLSearchParams(queryString);
+
+        localStorage.setItem("auth", true);
+
         const name = urlParams.get('user_name');
-        console.log(name);
+        localStorage.setItem("name", name);
         const surname = urlParams.get('user_surname');
-        console.log(surname);
+        localStorage.setItem("surname", surname);
         const login = urlParams.get('user_login');
-        console.log(login);
+        localStorage.setItem("login", login);
         const email = urlParams.get('user_email');
-        console.log(email);
+        localStorage.setItem("email", email);
+        const id = urlParams.get('user_id');
+        localStorage.setItem("user_id", id);
 
-        /*cockie.set("name", name);
-        cockie.set("surname", surname);
-        cockie.set("lo", name);*/
+        window.location.replace("http://localhost:3000/login");
+    }
 
+    Out() {
+        localStorage.clear();
+
+        window.location.replace("http://localhost:3000/login");
+    }
+
+
+    PersonPage() {
         return (
             <div>
                 <table cols="3" width="100%">
                     <tr>
                         <td>
-                            <h1>Здравствуйте, {login}</h1>
+                            <h1>Здравствуйте, {localStorage.getItem("login")}</h1>
                             <img src={require("./icon.jpg")} alt="icon" width="200px"/>
                         </td>
                         <td>
-                            <div className="field"> Имя: {name}</div>
-                            <div className="field"> Фамилия: {surname}</div>
-                            <div className="field"> Email: {email}</div>
+                            <div className="field"> Имя: {localStorage.getItem("name")}</div>
+                            <div className="field"> Фамилия: {localStorage.getItem("surname")}</div>
+                            <div className="field"> Email: {localStorage.getItem("email")}</div>
                         </td>
                         <td>
                             <div className="container">
@@ -59,21 +66,22 @@ class Login extends  React.Component {
                         </td>
                     </tr>
                 </table>
-            </div>
 
+                <div>
+                    <Button onClick={this.Out.bind(this)} intent="primary" className="LoginButton" text="Выйти" large="true"/>
+                </div>
+
+                <BookList/>
+            </div>
         );
     };
 
-
-    render() {
+    Signin() {
         const queryString = window.location.search;
-        console.log(queryString);
 
         const urlParams = new URLSearchParams(queryString);
         const success = urlParams.get('success');
-        console.log(success);
         const message = urlParams.get('message');
-        console.log(message);
 
         return(
             <div className="App">
@@ -81,7 +89,7 @@ class Login extends  React.Component {
                     {
                         (success === "true")
                             ?
-                            this.PersonPage()
+                            this.SaveSession()
                             :
                             <div>
                                 { (!message)
@@ -113,25 +121,25 @@ class Login extends  React.Component {
                     }
                 </form>
 
-                {
-                    (success === "true")
-                        ?
-                        <div>
-                            <Link to="/login">
-                                <Button intent="primary" className="LoginButton" text="Выйти" large="true"/>
-                            </Link>
-                        </div>
-                        :
-                        <div>
-                            <Link to="/signup">
-                                <Button icon="add" intent="primary" className="LoginButton" text="Зарегистрироваться" large="true"/>
-                            </Link>
-                        </div>
-                }
+                <div>
+                    <Link to="/signup">
+                        <Button icon="add" intent="primary" className="LoginButton" text="Зарегистрироваться" large="true"/>
+                    </Link>
+                </div>
 
                 <BookList/>
             </div>
         );
+    }
+
+
+    render() {
+        if (localStorage.getItem("auth") != null && localStorage.getItem("auth")) {
+            return this.PersonPage();
+        }
+        else {
+            return this.Signin();
+        }
     }
 }
 
