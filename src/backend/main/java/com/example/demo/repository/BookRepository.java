@@ -15,9 +15,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             nativeQuery = true)
     List<Book> findBooksByUser(long id);
 
-    @Query(value = "select * " +
-            "from PAGES "+
-            "where BOOK_ID=?1",
+    @Query(value = "select p.TEXT " +
+            "from PAGES p "+
+            "where BOOK_ID=?1 and p.PAGE=?2 ",
             nativeQuery = true)
-    List<Page> getPages(long id);
+    String getPage(long id, long page);
 }

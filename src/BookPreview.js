@@ -19,7 +19,7 @@ const BookPreview = (props) => {
             <Card interactive={true} elevation={Elevation.ONE}>
                 <img src={props.linkToTheCover} alt={props.name} />
                 <h4>{props.name}</h4>
-                <p>{props.author}</p>
+                <p>{props.annotation}</p>
                 <Link to={getLink(props.bookId)}>
                     <Button icon="book" intent="primary" className="LoginButton" text={genButtonText(props.isAlreadyOpened)} large="true"/>
                 </Link>

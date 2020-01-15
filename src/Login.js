@@ -25,13 +25,13 @@ class Login extends  React.Component {
         const email = urlParams.get('user_email');
         console.log(email);
 
-        cockie.set("name", name);
+        /*cockie.set("name", name);
         cockie.set("surname", surname);
-        cockie.set("lo", name);
+        cockie.set("lo", name);*/
 
         return (
             <div>
-                <table cols="3" width="1500px">
+                <table cols="3" width="100%">
                     <tr>
                         <td>
                             <h1>Здравствуйте, {login}</h1>
@@ -43,7 +43,19 @@ class Login extends  React.Component {
                             <div className="field"> Email: {email}</div>
                         </td>
                         <td>
-
+                            <div className="container">
+                                <div className="clock">
+                                    <div className="clock-inner">
+                                        <div className="clock-minutes"></div>
+                                        <ul className="clock-numbers">
+                                            <li>XII</li>
+                                            <li>III</li>
+                                            <li>VI</li>
+                                            <li>IX</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </table>

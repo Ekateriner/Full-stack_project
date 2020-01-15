@@ -13,21 +13,30 @@ public class Page {
     @Column(name = "page_id", updatable = false, nullable = false)
     long page_id;
 
-    /*@ManyToOne()
-    @JoinColumn(name="Book_id")
-    private Book primaryBook;*/
+    @Column(name="Page")
+    long page_num;
 
     @Column(name="Text")
     String text;
-
-    @Column(name="Page")
-    int page_num;
 
     @Column(name="Picture")
     SerialBlob image;
 
     @Column(name="Atmosphere")
     SerialBlob sound;
+
+    public Page () {};
+
+    public Page (int num, String Text, SerialBlob pic, SerialBlob music) {
+        this.page_num = num;
+        this.text = Text;
+        this.image = pic;
+        this.sound = music;
+    }
+
+    /*@ManyToOne()
+    @JoinColumn(name="Book_id")
+    private Book primaryBook;*/
 
     // GET
 
@@ -43,7 +52,7 @@ public class Page {
         return text;
     }
 
-    public int getPage_num() {
+    public long getPage_num() {
         return page_num;
     }
 
