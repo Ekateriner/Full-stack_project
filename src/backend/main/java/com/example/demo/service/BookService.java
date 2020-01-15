@@ -12,11 +12,19 @@ public class BookService {
     @Autowired
     private BookRepository repo;
 
-    public Book get(long id) {
-        return repo.getOne(id);
+    public String get(long id, long page) {
+        String text = repo.getPage(id, page);
+        if (text == null) {
+            text = "Конец";
+        }
+        return text;
     }
 
     public List<Book> AllBooks() {
         return repo.findAll();
+    }
+
+    public List<Book> UserBooks(long id) {
+        return repo.findBooksByUser(id);
     }
 }

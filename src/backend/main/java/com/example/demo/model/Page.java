@@ -10,18 +10,14 @@ import javax.sql.rowset.serial.SerialBlob;
 public class Page {
     @Id
     @GeneratedValue
-    @Column(name = "Id", updatable = false, nullable = false)
+    @Column(name = "page_id", updatable = false, nullable = false)
     long page_id;
 
-    @ManyToOne()
-    @JoinColumn(name="Book_id")
-    private Book primaryBook;
+    @Column(name="Page")
+    long page_num;
 
     @Column(name="Text")
     String text;
-
-    @Column(name="Page")
-    int page_num;
 
     @Column(name="Picture")
     SerialBlob image;
@@ -29,21 +25,34 @@ public class Page {
     @Column(name="Atmosphere")
     SerialBlob sound;
 
+    public Page () {};
+
+    public Page (int num, String Text, SerialBlob pic, SerialBlob music) {
+        this.page_num = num;
+        this.text = Text;
+        this.image = pic;
+        this.sound = music;
+    }
+
+    /*@ManyToOne()
+    @JoinColumn(name="Book_id")
+    private Book primaryBook;*/
+
     // GET
 
     public long getPage_id() {
         return page_id;
     }
 
-    public Book getPrimaryBook() {
+    /*public Book getPrimaryBook() {
         return primaryBook;
-    }
+    }*/
 
     public String getText() {
         return text;
     }
 
-    public int getPage_num() {
+    public long getPage_num() {
         return page_num;
     }
 
