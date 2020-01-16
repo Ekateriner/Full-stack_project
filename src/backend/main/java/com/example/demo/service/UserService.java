@@ -55,6 +55,6 @@ public class UserService {
     }
 
     private boolean check(String Email) {
-        return Pattern.matches("^\\w+@[a-z]+\\.[a-z]+$", Email);
+        return Pattern.matches("^[\\w.]+@[a-z]+\\.[a-z]+$", Email);
     }
 }

@@ -29,8 +29,8 @@ public class User {
     @Column(name="Hash_pass")
     String Hash;
 
-    @ManyToMany(mappedBy = "users")
-    private Collection<Book> books;
+    /*@ManyToMany(mappedBy = "users")
+    private Collection<Book> books;*/
 
     public User () {};
 
@@ -72,9 +72,9 @@ public class User {
         return Hash;
     }
 
-    public Collection<Book> getBooks() {
+    /*public Collection<Book> getBooks() {
         return books;
-    }
+    }*/
 
     // SET
 
