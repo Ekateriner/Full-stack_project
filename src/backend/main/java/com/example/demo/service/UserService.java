@@ -16,6 +16,11 @@ public class UserService {
     @Autowired
     private UserRepository repo;
 
+    /*public void collect(long book, long user){
+        if (repo.collect_check(book, user) == 0)
+            repo.AddCollect(book, user);
+    }*/
+
     public List<User> getAll() {
         return repo.findAll();
     }
