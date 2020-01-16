@@ -5,14 +5,27 @@ import { Link } from 'react-router-dom'
 import BookPreview from "./BookPreview";
 import BookList from "./BookList";
 import "./templates.css"
+import {PropTypes} from "prop-types";
+import {connect} from "react-redux";
+import {store} from "./index";
+import {setAuth} from "./actions";
 
 class Login extends  React.Component {
+    static propTypes = {
+        auth: PropTypes.string
+    };
+
+    static defaultProps = {
+        auth: null
+    };
+
     SaveSession() {
         const queryString = window.location.search;
 
         const urlParams = new URLSearchParams(queryString);
 
-        localStorage.setItem("auth", true);
+        // localStorage.setItem("auth", true);
+        store.dispatch(setAuth(true));
 
         const name = urlParams.get('user_name');
         localStorage.setItem("name", name);
@@ -134,7 +147,7 @@ class Login extends  React.Component {
 
 
     render() {
-        if (localStorage.getItem("auth") != null && localStorage.getItem("auth")) {
+        if (!this.props.auth) {
             return this.PersonPage();
         }
         else {
@@ -143,4 +156,10 @@ class Login extends  React.Component {
     }
 }
 
-export default Login;
+function mapStoreToProps(store) {
+    return {
+        auth: store.auth
+    }
+}
+
+export default connect(mapStoreToProps)(Login);
