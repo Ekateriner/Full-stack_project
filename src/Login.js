@@ -12,11 +12,11 @@ import {setAuth} from "./actions";
 
 class Login extends  React.Component {
     static propTypes = {
-        auth: PropTypes.string
+        auth: PropTypes.bool
     };
 
     static defaultProps = {
-        auth: null
+        auth: false
     };
 
     SaveSession() {
@@ -25,7 +25,6 @@ class Login extends  React.Component {
         const urlParams = new URLSearchParams(queryString);
 
         // localStorage.setItem("auth", true);
-        store.dispatch(setAuth(true));
 
         const name = urlParams.get('user_name');
         localStorage.setItem("name", name);
@@ -38,13 +37,12 @@ class Login extends  React.Component {
         const id = urlParams.get('user_id');
         localStorage.setItem("user_id", id);
 
-        window.location.replace("http://localhost:3000/login");
+        store.dispatch(setAuth(true));
     }
 
     Out() {
+        store.dispatch(setAuth(false));
         localStorage.clear();
-
-        window.location.replace("http://localhost:3000/login");
     }
 
 
@@ -147,7 +145,7 @@ class Login extends  React.Component {
 
 
     render() {
-        if (!this.props.auth) {
+        if (this.props.auth) {
             return this.PersonPage();
         }
         else {

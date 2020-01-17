@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 // Your routes.js file
 import routes from './routes';
 
-const initialState = {};
+const initialState = {auth : false};
 export const store = storeFactory(initialState);
 
 ReactDOM.render((
