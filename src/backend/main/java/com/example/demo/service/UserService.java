@@ -20,6 +20,10 @@ public class UserService {
         return repo.findAll();
     }
 
+    public User get(long id) {
+        return repo.getOne(id);
+    }
+
     public User get(String Email, String Password) throws AuthenticationException {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         if (Email != null && Password != null) {

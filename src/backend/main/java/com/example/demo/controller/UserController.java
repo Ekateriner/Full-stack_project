@@ -20,17 +20,17 @@ public class UserController {
         return service.getAll();
     }
 
+    @GetMapping(value = "/user")
+    public @ResponseBody User Get(@RequestParam(name = "id")long id){
+        return service.get(id);
+    }
+
     @ExceptionHandler
     @PostMapping("/login")
     public ModelAndView head(@RequestParam(name="email") String Email, @RequestParam(name="password") String Password) {
         try {
             User user = service.get(Email, Password);
             ModelAndView mav = new ModelAndView("redirect:http://localhost:3000/login");
-            mav.addObject("success", true);
-            mav.addObject("user_name", user.getName());
-            mav.addObject("user_surname", user.getSurname());
-            mav.addObject("user_login", user.getLogin());
-            mav.addObject("user_email", user.getEmail());
             mav.addObject("user_id", user.getUser_id());
             return mav;
         }
@@ -56,11 +56,11 @@ public class UserController {
             ModelAndView mav = new ModelAndView("redirect:http://localhost:3000/login");
             mav.addObject("success", true);
             // тут в теории должно быть mav.addObject("user", user); но я так и неразобралась как работать с jsp
-            mav.addObject("user_name", user.getName());
+            /*mav.addObject("user_name", user.getName());
             mav.addObject("user_surname", user.getSurname());
             mav.addObject("user_login", user.getLogin());
             mav.addObject("user_email", user.getEmail());
-            mav.addObject("user_id", user.getUser_id());
+            mav.addObject("user_id", user.getUser_id());*/
             return mav;
         }
         catch (AuthenticationException e){

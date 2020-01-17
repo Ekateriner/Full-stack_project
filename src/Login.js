@@ -6,31 +6,45 @@ import BookPreview from "./BookPreview";
 import BookList from "./BookList";
 import "./templates.css"
 
+function url() {
+    return "http://localhost:8080/user?id="+localStorage.getItem("user_id");
+}
+
 class Login extends  React.Component {
+    /*constructor(props) {
+        super(props);
+        this.state = {
+            response: null
+        };
+    }*/
+
+    UserRequest() {
+        fetch(url())
+            .then((response) => {
+                return response.json();
+            })
+            .then((result) => {
+                localStorage.setItem("user_name", result.Name);
+                localStorage.setItem("user_surname", result.Surname);
+                localStorage.setItem("user_login", result.Login);
+                localStorage.setItem("user_email", result.Email);
+            });
+    }
+
     SaveSession() {
         const queryString = window.location.search;
 
         const urlParams = new URLSearchParams(queryString);
 
-        localStorage.setItem("auth", true);
-
-        const name = urlParams.get('user_name');
-        localStorage.setItem("name", name);
-        const surname = urlParams.get('user_surname');
-        localStorage.setItem("surname", surname);
-        const login = urlParams.get('user_login');
-        localStorage.setItem("login", login);
-        const email = urlParams.get('user_email');
-        localStorage.setItem("email", email);
         const id = urlParams.get('user_id');
         localStorage.setItem("user_id", id);
-
+        this.UserRequest();
+        localStorage.setItem("auth", true);
         window.location.replace("http://localhost:3000/login");
     }
 
     Out() {
         localStorage.clear();
-
         window.location.replace("http://localhost:3000/login");
     }
 
