@@ -10,8 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Data
 public class User {
     @Id
-    @GeneratedValue
-    @Column(name = "User_id", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long User_id;
 
     @Column(name="Login")
