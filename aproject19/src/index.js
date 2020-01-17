@@ -3,23 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {storeFactory} from "./reducers";
-import {Provider} from 'react-redux';
 
 // You can choose your kind of history here (e.g. browserHistory)
 import { BrowserRouter } from 'react-router-dom';
 // Your routes.js file
 import routes from './routes';
 
-const initialState = {auth : false};
-export const store = storeFactory(initialState);
-
 ReactDOM.render((
-    <Provider store={store}>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
 ), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
